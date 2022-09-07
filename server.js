@@ -28,9 +28,18 @@ app.set("view engine", "ejs");
 app.use("/css", express.static(path.resolve(__dirname, "assets/css")));
 app.use("/img", express.static(path.resolve(__dirname, "assets/img")));
 app.use("/js", express.static(path.resolve(__dirname, "assets/js")));
+app.use("/", require("./server/routes/router"));
 
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+// mới vô thử request http server 
 // app.get("/", (req, res) => {
-//   // res.send("Crud Application");
+//   // res.send("Hello world");
+
+
+
 //   res.render("index");
 // });
 
@@ -42,7 +51,4 @@ app.use("/js", express.static(path.resolve(__dirname, "assets/js")));
 //   res.render("update_user");
 // });
 //load routers
-app.use("/", require("./server/routes/router"));
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+
