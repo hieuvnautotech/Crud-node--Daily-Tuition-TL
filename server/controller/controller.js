@@ -17,9 +17,7 @@ exports.create = (req, res) => {
   });
 
   // save user in the database
-  user
-    .save(user)
-    .then((data) => {
+  user.save(user).then((data) => {
       //res.send(data)
       res.redirect("/add-user");
     })
